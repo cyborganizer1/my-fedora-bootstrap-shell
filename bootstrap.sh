@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-https://gitlab.com/linux-files1/fedora-bootstrap-shell/raw/main/bootstrap.sh
+https://gitlab.com/cyborganizer/linux-files/fedora-bootstrap-shell/raw/main/bootstrap.sh
 
 
 
