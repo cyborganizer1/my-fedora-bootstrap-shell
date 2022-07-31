@@ -1,5 +1,9 @@
 #!/bin/env bash
 
+https://gitlab.com/linux-files1/fedora-bootstrap-shell/raw/main/bootstrap.sh
+
+
+
 # To run do:
 # https://gist.github.com/cyborganizer1/b34fa50afa2d79d3e002187497a133da/raw/bootstrap.sh | bash
 # OR
