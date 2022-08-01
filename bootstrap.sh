@@ -18,8 +18,8 @@ sudo bash -c "cat >> /etc/dnf/dnf.conf << "EOF"
 fastestmirror=True
 max_parallel_downloads=10
 defaultyes=True
-keepcache=True"
-EOF
+keepcache=True
+EOF"
 
 # clear dnf cache
 sudo dnf clean dbcache
