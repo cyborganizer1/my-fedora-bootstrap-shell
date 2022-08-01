@@ -200,8 +200,8 @@ sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl start docker
 
 # configure docker to start on boot
-sudo systemctl disable docker.service
-sudo systemctl disable containerd.service
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 
 # install vscodium
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
