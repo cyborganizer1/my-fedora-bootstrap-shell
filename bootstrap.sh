@@ -14,7 +14,7 @@
     #sed -i 's/\r$//' ./bootstrap.sh
 
 # increase dnf speed
-sudo cat >> /etc/dnf/dnf.conf << "EOF"
+sudo -s cat >> /etc/dnf/dnf.conf << "EOF"
 fastestmirror=True
 max_parallel_downloads=10
 defaultyes=True
