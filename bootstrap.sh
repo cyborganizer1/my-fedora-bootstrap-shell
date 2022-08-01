@@ -1,10 +1,9 @@
 #!/bin/env bash
 
 # To run do:
-# curl -L https://gitlab.com/cyborganizer/linux-files/fedora-bootstrap-shell/raw/main/bootstrap.sh | bash
+# curl -L https://gitlab.com/cyborganizer/linuxfiles/fedora-bootstrap-shell/raw/main/bootstrap.sh | bash
 # OR
-# curl -L https://tinyurl.com/y2hmz9ss | bash
-
+# curl -L https://tinyurl.com/4tmknhwk | bash
 
 # To run do:
 # https://gist.github.com/cyborganizer1/b34fa50afa2d79d3e002187497a133da/raw/bootstrap.sh | bash
