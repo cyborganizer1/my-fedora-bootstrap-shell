@@ -198,14 +198,15 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # set .p10k.zsh (do not install as Sudo or $HOME will point to /root)
 wget -O $HOME/.p10k.zsh https://gitlab.com/cyborganizer/linuxfiles/dotfiles/raw/main/.p10k.zsh --no-check-certificate
 
-# install flatpak repo & flatpaks
-sudo dnf install -y flatpak
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak update
+# install docker/compose
+sudo dnf install -y dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl start docker
 
-sudo flatpak install -y flathub com.microsoft.Teams
-sudo flatpak install -y flathub com.github.eneshecan.WhatsAppForLinux
-sudo flatpak install -y flathub com.sindresorhus.Caprine
+# configure docker to start on boot
+sudo systemctl disable docker.service
+sudo systemctl disable containerd.service
 
 # install vscodium
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
@@ -223,25 +224,15 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
 
-# install sysmontask
-sudo dnf install -y libwnck3
-sudo dnf install -y sysmontask
-
 # office 365 webapps -install edge 1st
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge
 sudo mv /etc/yum.repos.d/packages.microsoft.com_yumrepos_edge.repo /etc/yum.repos.d/microsoft-edge-stable.repo
 sudo dnf install -y microsoft-edge-stable
 
-# install docker/compose
-sudo dnf install -y dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo systemctl start docker
-
-# configure docker to start on boot
-sudo systemctl disable docker.service
-sudo systemctl disable containerd.service
+# install sysmontask
+sudo dnf install -y libwnck3
+sudo dnf install -y sysmontask
 
 # install portainer (https://localhost:9443)
 # docker volume create portainer_data
