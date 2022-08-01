@@ -199,6 +199,10 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/dock
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl start docker
 
+# configure docker to run without root privileges
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
 # configure docker to start on boot
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
