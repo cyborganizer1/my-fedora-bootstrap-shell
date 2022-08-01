@@ -181,10 +181,10 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # set .zshrc
-sudo wget -O $HOME/.zshrc https://gist.github.com/cyborganizer1/84e35c672d3c7f2f310850b3c1dbc948/raw/.zshrc --no-check-certificate
+sudo wget -O $HOME/.zshrc https://gitlab.com/cyborganizer/linuxfiles/dotfiles/raw/main/.zshrc --no-check-certificate
 
 # set .zsh_aliases (do not install as Sudo or $HOME will point to /root)
-wget -O $HOME/.zsh_aliases https://gist.github.com/cyborganizer1/ba898b6554cdbd02d1dbc7b9287404f1/raw/.zsh_aliases --no-check-certificate
+wget -O $HOME/.zsh_aliases https://gitlab.com/cyborganizer/linuxfiles/dotfiles/raw/main/.zsh_aliases --no-check-certificate
 
 # install oh-my-zsh plugins (do not install as Sudo or $HOME will point to /root)
 git clone https://github.com/djui/alias-tips.git $HOME/.oh-my-zsh/custom/plugins/alias-tips
@@ -196,7 +196,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/cust
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # set .p10k.zsh (do not install as Sudo or $HOME will point to /root)
-wget -O $HOME/.p10k.zsh https://gist.github.com/cyborganizer1/16fe4f522b771a795d2e9ac09b0c0c09/raw/.p10k.zsh --no-check-certificate
+wget -O $HOME/.p10k.zsh https://gitlab.com/cyborganizer/linuxfiles/dotfiles/raw/main/.p10k.zsh --no-check-certificate
 
 # install flatpak repo & flatpaks
 sudo dnf install -y flatpak
