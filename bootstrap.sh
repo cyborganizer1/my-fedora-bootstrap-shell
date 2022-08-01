@@ -5,11 +5,6 @@
 # OR
 # curl -L https://tinyurl.com/4tmknhwk | bash
 
-# To run do:
-# https://gist.github.com/cyborganizer1/b34fa50afa2d79d3e002187497a133da/raw/bootstrap.sh | bash
-# OR
-# curl -L https://tinyurl.com/bd8r2zbu | bash
-
 # Convert Windows-style line endings to Unix-style (and vice versa)
     #sed -i 's/\r$//' ./bootstrap.sh
 
