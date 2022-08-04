@@ -1,9 +1,9 @@
 #!/bin/env bash
 
 # To run do:
-# curl -L https://gitlab.com/cyborganizer/linuxfiles/fedora-bootstrap-shell/raw/main/bootstrap.sh | bash
+# curl -L https://raw.githubusercontent.com/cyborganizer1/my-fedora-bootstrap-shell/main/bootstrap.sh | bash
 # OR
-# curl -L https://tinyurl.com/4tmknhwk | bash
+# curl -L https://tinyurl.com/nhkhfd54 | bash
 
 # Convert Windows-style line endings to Unix-style (and vice versa)
     #sed -i 's/\r$//' ./bootstrap.sh
