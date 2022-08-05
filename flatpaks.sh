@@ -6,3 +6,4 @@ sudo flatpak update
 sudo flatpak install -y flathub com.microsoft.Teams
 sudo flatpak install -y flathub com.github.eneshecan.WhatsAppForLinux
 sudo flatpak install -y flathub com.sindresorhus.Caprine
+sudo flatpak install -y flathub org.onlyoffice.desktopeditors
