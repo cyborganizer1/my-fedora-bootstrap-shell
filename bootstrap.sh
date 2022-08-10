@@ -146,6 +146,7 @@ sudo dnf install -y tree
 sudo dnf install -y bat # cat clone with syntax highlighting and Git integration
 sudo dnf install -y dos2unix
 sudo dnf install -y git
+sudo dnf install -y hstr
 
 # improve multimedia compatibility via rpmfusion
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -175,7 +176,7 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # set .zshrc
-sudo wget -O $HOME/.zshrc https://gitlab.com/cyborganizer/linuxfiles/dotfiles/raw/main/.zshrc --no-check-certificate
+sudo wget -O $HOME/.zshrc https://raw.githubusercontent.com/cyborganizer1/my-dotfiles/blob/main/.zshrc--no-check-certificate
 
 # set .zsh_aliases (do not install as Sudo or $HOME will point to /root)
 wget -O $HOME/.zsh_aliases https://gitlab.com/cyborganizer/linuxfiles/dotfiles/raw/main/.zsh_aliases --no-check-certificate
