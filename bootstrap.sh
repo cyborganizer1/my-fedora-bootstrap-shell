@@ -207,6 +207,7 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 
+
 # Change Docker root directory /var/lib/docker to another location (make if/else statement)
     # create a separate partition for docker
     # then
