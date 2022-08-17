@@ -8,6 +8,11 @@ sudo dnf install -y fedora-workstation-repositories
 sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install -y google-chrome-stable
 
+# install vivaldi
+sudo dnf install -y dnf-utils
+sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+sudo dnf install -y vivaldi-stable
+
 # install brave
 sudo dnf install -y dnf-plugins-core
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
@@ -28,7 +33,13 @@ sudo dnf install -y sysmontask
 # docker volume create portainer_data
 # docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
+
+
+
 # install terraform
 sudo dnf install -y dnf-plugins-core
 sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 sudo dnf install -y terraform
+
+# install azure-cli
+sudo dnf install -y azure-cli
