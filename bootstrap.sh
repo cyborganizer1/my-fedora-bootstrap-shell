@@ -139,7 +139,6 @@ sudo dnf install -y gwenview
 sudo dnf install -y kate
 sudo dnf install -y konsole5
 sudo dnf install -y okular
-sudo dnf install -y thunderbird
 
 # dev_tools
 sudo dnf install -y tree
