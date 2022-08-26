@@ -35,8 +35,8 @@ sudo dnf install -y sysmontask
 
 # top grade
 
-# joplin
-sudo dnf install -y wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+# joplin (note taking and to-do application)
+sudo wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 
 # install terraform
 sudo dnf install -y dnf-plugins-core
