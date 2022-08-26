@@ -33,8 +33,10 @@ sudo dnf install -y sysmontask
 # docker volume create portainer_data
 # docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
+# top grade
 
-
+# joplin
+sudo dnf install -y wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 
 # install terraform
 sudo dnf install -y dnf-plugins-core
