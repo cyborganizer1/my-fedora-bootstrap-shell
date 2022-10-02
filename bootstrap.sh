@@ -222,6 +222,9 @@ sudo systemctl enable containerd.service
 sudo systemctl enable sddm
 sudo systemctl set-default graphical.target
 
+# arc KDE theme
+wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/arc-kde/master/install.sh | sh
+
 # Update repos & system then reboot
 sudo dnf update --refresh
 sudo dnf update -y
