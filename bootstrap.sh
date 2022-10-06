@@ -147,6 +147,12 @@ sudo dnf install -y dos2unix
 sudo dnf install -y git
 sudo dnf install -y hstr # bash and zsh shell history suggest box (https://github.com/dvorka/hstr)
 
+# install powershell
+$ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+$ curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
+$ sudo dnf makecache
+$ sudo dnf install -y powershell
+
 # improve multimedia compatibility via rpmfusion
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf groupupdate -y core
