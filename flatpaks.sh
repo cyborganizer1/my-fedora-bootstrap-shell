@@ -9,3 +9,7 @@ sudo flatpak install -y flathub com.github.eneshecan.WhatsAppForLinux # Issues -
 sudo flatpak install -y flathub org.onlyoffice.desktopeditors
 sudo flatpak install -y flathub com.discordapp.Discord
 sudo flatpak install -y flathub me.hyliu.fluentreader
+
+# install freefilesync
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.freefilesync.FreeFileSync
