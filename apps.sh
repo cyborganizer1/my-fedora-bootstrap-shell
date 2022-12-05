@@ -38,6 +38,10 @@ sudo dnf install -y sysmontask
 # docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
 # top grade
+sudo dnf install rust cargo
+cargo install topgrade
+echo 'export PATH=$PATH:/home/pala/.cargo/bin' >> /home/pala/.zshrc
+cargo install cargo-update
 
 # joplin (note taking and to-do application)
 sudo wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
