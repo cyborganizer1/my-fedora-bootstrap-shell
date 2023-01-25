@@ -143,7 +143,7 @@ sudo dnf install -y okular
 # dev_tools
 sudo dnf install -y tree
 sudo dnf install -y bat # cat clone with syntax highlighting and Git integration
-sudo dnf install -y dos2unix
+# sudo dnf install -y dos2unix (not sure if this required)
 sudo dnf install -y git
 sudo dnf install -y hstr # bash and zsh shell history suggest box (https://github.com/dvorka/hstr)
 
@@ -162,12 +162,12 @@ sudo dnf install -y libva libva-utils mesa-vulkan-drivers
 sudo dnf install -y vlc vlc-extras mpv
 sudo dnf install -y vlc
 
-# intel graphic cards
-sudo dnf install -y libva-intel-driver intel-media-driver
+# intel graphic cards (using AMD/NVIDIA drivers now)
+# sudo dnf install -y libva-intel-driver intel-media-driver
 
 # install tilling manager bismuth
-sudo dnf -y copr enable capucho/bismuth
-sudo dnf install -y bismuth
+# sudo dnf -y copr enable capucho/bismuth
+# sudo dnf install -y bismuth
 
 # Change Hostname
 sudo hostnamectl set-hostname "fedora-lap"
@@ -211,7 +211,6 @@ sudo usermod -aG docker $USER
 # configure docker to start on boot
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
-
 
 # Change Docker root directory /var/lib/docker to another location (make if/else statement)
     # create a separate partition for docker
