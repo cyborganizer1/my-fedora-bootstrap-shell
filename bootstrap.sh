@@ -162,6 +162,11 @@ sudo dnf install -y libva libva-utils mesa-vulkan-drivers
 sudo dnf install -y vlc vlc-extras mpv
 sudo dnf install -y vlc
 
+# nvidia graphic cards - https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
+sudo dnf update --refresh
+sudo dnf install akmod-nvidia -y
+sudo dnf install xorg-x11-drv-nvidia-cuda
+
 # intel graphic cards (using AMD/NVIDIA drivers now)
 # sudo dnf install -y libva-intel-driver intel-media-driver
 
