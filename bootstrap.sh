@@ -163,6 +163,7 @@ sudo dnf install -y vlc vlc-extras mpv
 sudo dnf install -y vlc
 
 # nvidia graphic cards - https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
+# Secure Boot must be disabled, then you can renable afterwards
 sudo dnf update --refresh
 sudo dnf install akmod-nvidia -y
 sudo dnf install xorg-x11-drv-nvidia-cuda
