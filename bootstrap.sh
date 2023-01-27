@@ -28,7 +28,6 @@ sudo dnf install -y "@hardware-support"
 sudo dnf install -y "@networkmanager-submodules"
 sudo dnf install -y "@printing"
 sudo dnf install -y "@x86-baremetal-tools"
-sudo dnf install -y "@virtualization"
 sudo dnf install -y ModemManager
 sudo dnf install -y NetworkManager-adsl
 sudo dnf install -y NetworkManager-config-connectivity-fedora
@@ -167,10 +166,6 @@ sudo dnf install -y vlc
 # Secure Boot must be disabled, then you can renable afterwards
 sudo dnf install -y akmod-nvidia
 sudo dnf install -y xorg-x11-drv-nvidia-cuda
-
-# Start and enable virtualisation on boot (libvirtd) 
-sudo systemctl start libvirtd
-sudo systemctl enable libvirtd
 
 # intel graphic cards (using AMD/NVIDIA drivers now)
 # sudo dnf install -y libva-intel-driver intel-media-driver
