@@ -168,6 +168,10 @@ sudo dnf install -y vlc
 sudo dnf install -y akmod-nvidia
 sudo dnf install -y xorg-x11-drv-nvidia-cuda
 
+# Start and enable virtualisation on boot (libvirtd) 
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+
 # intel graphic cards (using AMD/NVIDIA drivers now)
 # sudo dnf install -y libva-intel-driver intel-media-driver
 
