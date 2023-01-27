@@ -28,6 +28,7 @@ sudo dnf install -y "@hardware-support"
 sudo dnf install -y "@networkmanager-submodules"
 sudo dnf install -y "@printing"
 sudo dnf install -y "@x86-baremetal-tools"
+sudo dnf install -y "@virtualization"
 sudo dnf install -y ModemManager
 sudo dnf install -y NetworkManager-adsl
 sudo dnf install -y NetworkManager-config-connectivity-fedora
