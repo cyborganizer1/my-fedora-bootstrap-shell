@@ -162,11 +162,6 @@ sudo dnf install -y libva libva-utils mesa-vulkan-drivers
 sudo dnf install -y vlc vlc-extras mpv
 sudo dnf install -y vlc
 
-# nvidia graphic cards - https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
-# Secure Boot must be disabled, then you can renable afterwards
-sudo dnf install -y akmod-nvidia
-sudo dnf install -y xorg-x11-drv-nvidia-cuda
-
 # intel graphic cards (using AMD/NVIDIA drivers now)
 # sudo dnf install -y libva-intel-driver intel-media-driver
 
