@@ -54,14 +54,20 @@ if you have output similar to the one above, then everything went smoothly and y
 To check which drivers are installed for the kernel you are using
     
     lspci -k | grep -A 2 VGA 
+    
+    NVIDIA
 
     pcilib: Error reading /sys/bus/pci/devices/0000:00:08.3/label: Operation not permitted
     01:00.0 VGA compatible controller: NVIDIA Corporation GA107BM [GeForce RTX 3050 Mobile] (rev a1)
             Subsystem: Lenovo Device 3b12
-            Kernel driver in use: nouveau
+            Kernel driver in use: nvidia
     --
     04:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt [Radeon 680M] (rev 02)
             Subsystem: Lenovo Device 3b1e
             Kernel driver in use: amdgpu
+
+
+Issues
+https://ask.fedoraproject.org/t/nvidia-drivers-not-working-anymore-after-kernel-6-0-x-update/27987/13
 
 
