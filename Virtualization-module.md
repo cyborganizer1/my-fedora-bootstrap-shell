@@ -9,20 +9,27 @@ https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualizat
    2. Alternatively, to install the mandatory, default, and optional packages, run:
 
      sudo dnf group install --with-optional virtualization
+     
+   3. Install additional virtualization modules.
 
-   3. After the packages install, start the libvirtd service:
+     sudo dnf install libvirt-devel virt-top libguestfs-tools guestfs-tools
+
+   4. After the packages install, start the libvirtd service:
 
      sudo systemctl start libvirtd
 
-   4. To start the service on boot, run:
+   5. To start the service on boot, run:
 
      sudo systemctl enable libvirtd
 
-   5. To verify that the KVM kernel modules are properly loaded:
+   6. To verify that the KVM kernel modules are properly loaded:
 
     $ lsmod | grep kvm
     kvm_amd               114688  0
     kvm                   831488  1 kvm_amd
 
     If this command lists kvm_intel or kvm_amd, KVM is properly configured.
-
+    
+   7. Check that the service is running by executing the command:
+     
+     sudo systemctl status libvirtd
