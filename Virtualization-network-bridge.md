@@ -7,6 +7,7 @@ https://discussion.fedoraproject.org/t/virtual-machine-manager-bridged-network-w
 
 https://computingforgeeks.com/how-to-create-and-configure-bridge-networking-for-kvm-in-linux/
 
+https://www.linuxtechi.com/how-to-install-kvm-on-fedora-step-by-step/
 
 Fedora uses NetworkManager by default, so those files won't be used. Instead:
 
