@@ -41,13 +41,12 @@ Here’s how to automatically sign NVidia kernel module in Fedora 36
 
 Now that you’re done, make sure to verify the driver got loaded after reboot:
 
-$> lsmod | grep -i nvidia
+    $> lsmod | grep -i nvidia
 
-nvidia_drm             73728  1
-nvidia_modeset       1150976  2 nvidia_drm
-nvidia              36954112  129 nvidia_modeset
-drm_kms_helper        311296  2 nvidia_drm,i915
-drm                   630784  28 drm_kms_helper,nvidia,nvidia_drm,i915,ttm
-Code language: Gradle (gradle)
+    nvidia_drm             73728  1
+    nvidia_modeset       1150976  2 nvidia_drm
+    nvidia              36954112  129 nvidia_modeset
+    drm_kms_helper        311296  2 nvidia_drm,i915
+    drm                   630784  28 drm_kms_helper,nvidia,nvidia_drm,i915,ttm
 
 if you have output similar to the one above, then everything went smoothly and you’re all set!
