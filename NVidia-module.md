@@ -3,7 +3,7 @@ Automatically sign NVidia Kernel module in Fedora 36
 https://blog.monosoul.dev/2022/05/17/automatically-sign-nvidia-kernel-module-in-fedora-36/
 
 
-ere’s how to automatically sign NVidia kernel module in Fedora 36
+Here’s how to automatically sign NVidia kernel module in Fedora 36
 
     Install the tools required for auto signing to work
 
