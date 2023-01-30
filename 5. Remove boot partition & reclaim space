@@ -1,7 +1,0 @@
-sudo gdisk /dev/nvme0n1
-
-sudo btrfs filesystem resize max /
-
-sudo btrfs filesystem show /
-
-lsblk -p /dev/nvme0n1
