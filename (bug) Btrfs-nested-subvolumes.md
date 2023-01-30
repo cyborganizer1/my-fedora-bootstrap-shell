@@ -1,3 +1,5 @@
+# Do not start this process, once restoring snapshot, screen will go black and snapshot will not be restored.
+
 # brtfs subvolume list
     sudo btrfs subvolume list /
 
