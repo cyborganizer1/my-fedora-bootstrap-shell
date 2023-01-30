@@ -1,5 +1,6 @@
+
 # Do not start this process, once restoring snapshot, screen will go black and snapshot will not be restored.
-# btrfs-nested-subvolumes
+1. btrfs-nested-subvolumes
 
 # brtfs subvolume list
     sudo btrfs subvolume list /
@@ -52,3 +53,161 @@
 # Nested Subvolume /var/lib/libvirt/
     sudo mkdir /var/lib/libvirt/
     sudo btrfs subvolume create /var/lib/libvirt/images
+
+2.Move boot to the root filesystem
+
+    sudo umount -vR /boot
+
+    sudo mount -v /dev/nvme0n1p3 /mnt
+
+    sudo cp -arv /mnt/. /boot
+
+    sudo umount -v /mnt
+    sudo sed -i.original '/\/boot.*ext4/d' /etc/fstab
+    sudo systemctl daemon-reload
+    sudo mount -va
+
+    sudo restorecon -RFv /boot
+
+    echo 'GRUB_ENABLE_CRYPTODISK=y' | sudo tee -a /etc/default/grub
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+    sudo grubby --info=DEFAULT
+
+    sudo sh -c 'rm -i /boot/loader/entries/*.conf'
+
+    sudo kernel-install -v add $(uname -r) /lib/modules/$(uname -r)/vmlinuz
+
+    sudo grubby --info=DEFAULT
+
+    lsblk -po name,uuid,mountpoints /dev/nvme0n1
+
+    CRYPTOUUID="$(sudo cryptsetup luksUUID /dev/nvme0n1p2 | tr -d -)"
+    sudo sed -i.backup1 "1i cryptomount -u ${CRYPTOUUID}" /boot/efi/EFI/fedora/grub.cfg
+
+    OLDUUID="$(lsblk -dno uuid /dev/nvme0n1p3)"
+    NEWUUID="$(lsblk -dno uuid /dev/mapper/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2))"
+    sudo sed -i.backup2 "s/${OLDUUID}/${NEWUUID}/" /boot/efi/EFI/fedora/grub.cfg
+
+    sudo sed -i.backup3 's#($dev)/grub2#($dev)/boot/grub2#' /boot/efi/EFI/fedora/grub.cfg
+
+    sudo cryptsetup luksDump /dev/nvme0n1p2 | grep 'PBKDF:'
+
+    sudo cryptsetup luksChangeKey \
+        --key-slot 0 \
+        --pbkdf pbkdf2 \
+        --pbkdf-force-iterations 500000 \
+        --force-password \
+        /dev/nvme0n1p2
+
+    sudo cryptsetup luksDump /dev/nvme0n1p2
+    
+3. Remove boot partition & reclaim space
+
+    sudo gdisk /dev/nvme0n1
+
+    sudo btrfs filesystem resize max /
+
+    sudo btrfs filesystem show /
+
+    lsblk -p /dev/nvme0n1
+
+4. Bypass the Additional Passphrase Prompt
+
+    sudo mkdir /etc/cryptsetup-keys.d
+
+sudo dd if=/dev/random \
+    of=/etc/cryptsetup-keys.d/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2).key \
+    bs=512 count=8
+    
+sudo chmod 0400 /etc/cryptsetup-keys.d/*.key
+
+sudo cryptsetup luksAddKey \
+    --pbkdf pbkdf2 \
+    --pbkdf-force-iterations 500000 \
+    /dev/nvme0n1p2 \
+    /etc/cryptsetup-keys.d/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2).key
+    
+sudo vi /etc/dracut.conf.d/cryptodisk.conf
+
+install_items+=" /etc/cryptsetup-keys.d/* "
+
+sudo dracut -vf
+
+5. Install and Configure Snapper
+
+    sudo dnf install snapper python3-dnf-plugin-snapper
+
+    sudo snapper -c root create-config /
+
+    sudo snapper -c home create-config /home
+
+    sudo snapper list-configs
+
+    sudo snapper -c root set-config ALLOW_USERS=$USER SYNC_ACL=yes
+
+    sudo snapper -c home set-config ALLOW_USERS=$USER SYNC_ACL=yes
+
+    sudo chown -R :$USER /.snapshots
+
+    sudo chown -R :$USER /home/.snapshots
+
+    sudo systemctl daemon-reload
+
+    sudo mount -va
+
+    lsblk -p /dev//dev/nvme0n1
+
+    sudo btrfs subvolume list /
+
+    echo 'SUSE_BTRFS_SNAPSHOT_BOOTING="true"' | sudo tee -a /etc/default/grub
+
+    sudo sed -i '1i set btrfs_relative_path="yes"' /boot/efi/EFI/fedora/grub.cfg
+
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+    sudo grub2-editenv - unset menu_auto_hide
+
+    snapper -c root ls
+    or
+    snapper ls
+    
+6. Install and Configure Grub-Btrfs
+
+    git clone https://github.com/Antynea/grub-btrfs
+    cd grub-btrfs
+    git switch Add-systemd-volatile
+
+    sed -i 's/#GRUB_BTRFS_SYSTEMD_VOLATILE=/GRUB_BTRFS_SYSTEMD_VOLATILE=/' config
+    sed -i 's/#GRUB_BTRFS_GRUB_DIRNAME=/GRUB_BTRFS_GRUB_DIRNAME=/' config
+    sed -i '/#GRUB_BTRFS_MKCONFIG=/c\GRUB_BTRFS_MKCONFIG=/sbin/grub2-mkconfig' config
+    sed -i 's/#GRUB_BTRFS_SCRIPT_CHECK=/GRUB_BTRFS_SCRIPT_CHECK=/' config
+
+    sudo make INITCPIO=true install
+
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+    sudo systemctl enable --now grub-btrfs.path
+
+    cd ..
+    rm -rvf grub-btrfs
+
+7. Test the Snapper's Undochange and Rollback Features
+
+    https://sysguides.com/install-fedora-37-with-snapper-and-grub-btrfs/#4-5-test-the-snappers-undochange-and-rollback-features
+
+    sudo dnf install ps_mem
+
+    sudo ps_mem
+
+    snapper ls
+
+    snapper status 1..2
+
+    sudo snapper undochange 1..2
+
+    sudo ps_mem
+
+    sudo snapper undochange 2..1
+
+    sudo ps_mem
