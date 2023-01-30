@@ -1,3 +1,6 @@
+# brtfs subvolume list
+    sudo btrfs subvolume list /
+
 # Nested Subvolume /var/log
     sudo mv -v /var/log /var/log-old
     sudo btrfs subvolume create /var/log
