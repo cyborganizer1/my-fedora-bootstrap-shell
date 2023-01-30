@@ -1,5 +1,7 @@
+https://sysguides.com/install-fedora-37-with-snapper-and-grub-btrfs/
 
 # Do not start this process, once restoring snapshot, screen will go black and snapshot will not be restored.
+
 1. btrfs-nested-subvolumes
 
 # brtfs subvolume list
@@ -116,23 +118,23 @@
 
     sudo mkdir /etc/cryptsetup-keys.d
 
-sudo dd if=/dev/random \
-    of=/etc/cryptsetup-keys.d/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2).key \
-    bs=512 count=8
-    
-sudo chmod 0400 /etc/cryptsetup-keys.d/*.key
+    sudo dd if=/dev/random \
+        of=/etc/cryptsetup-keys.d/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2).key \
+        bs=512 count=8
 
-sudo cryptsetup luksAddKey \
-    --pbkdf pbkdf2 \
-    --pbkdf-force-iterations 500000 \
-    /dev/nvme0n1p2 \
-    /etc/cryptsetup-keys.d/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2).key
-    
-sudo vi /etc/dracut.conf.d/cryptodisk.conf
+    sudo chmod 0400 /etc/cryptsetup-keys.d/*.key
 
-install_items+=" /etc/cryptsetup-keys.d/* "
+    sudo cryptsetup luksAddKey \
+        --pbkdf pbkdf2 \
+        --pbkdf-force-iterations 500000 \
+        /dev/nvme0n1p2 \
+        /etc/cryptsetup-keys.d/luks-$(sudo cryptsetup luksUUID /dev/nvme0n1p2).key
 
-sudo dracut -vf
+    sudo vi /etc/dracut.conf.d/cryptodisk.conf
+
+    install_items+=" /etc/cryptsetup-keys.d/* "
+
+    sudo dracut -vf
 
 5. Install and Configure Snapper
 
