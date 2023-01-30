@@ -17,7 +17,7 @@ Here’s how to automatically sign NVidia kernel module in Fedora 36
     You will be asked to enter a password, it doesn’t have to be very strong, just make sure to remember it. You’ll only need it once during step 5.
     
     4. Reboot to enroll the key
-    sudo reboot\
+    sudo reboot
     
     5. Enroll the key
     After reboot you will see MOK Manager interface and will be asked to enroll the key. Probably if you ever installed nVidia drivers in Ubuntu with Secure boot enabled, you’ve seen this interface before.
