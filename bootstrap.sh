@@ -230,6 +230,9 @@ sudo systemctl set-default graphical.target
 # arc KDE theme
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/arc-kde/master/install.sh | sh
 
+# Disable ipv6 for all kernels
+sudo grubby --update-kernel ALL --args ipv6.disable=1
+
 # Update repos & system then reboot
 sudo dnf update --refresh
 sudo dnf update -y
