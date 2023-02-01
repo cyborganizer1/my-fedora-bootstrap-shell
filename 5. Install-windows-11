@@ -22,3 +22,10 @@ Edit the libvirtd configuration to enable a regular user the system administrati
    sudo dnf install edk2-ovmf
 
 6. Install the TPM tool package
+   https://rpmfind.net/linux/rpm2html/search.php?query=swtpm-tools
+   cd Downloads
+   sudo dnf install ./swtpm-tools-0.7.3-2.20220427gitf2268ee.fc37.x86_64.rpm
+
+7. Create a Pool to store the virtual machines
+
+
