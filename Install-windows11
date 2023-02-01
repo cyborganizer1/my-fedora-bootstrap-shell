@@ -1,0 +1,24 @@
+
+Edit the libvirtd configuration to enable a regular user the system administration privileges.
+
+
+1. Set the domain socket group ownership to libvirt.
+    sudo vim /etc/libvirt/libvirtd.conf
+    unix_sock_group = "libvirt"
+    
+2. Adjust the UNIX socket permissions for the R/W socket.
+   sudo vim /etc/libvirt/libvirtd.conf
+   unix_sock_rw_perms = "0770"
+
+3. Start and enable the libvirtd service.
+   sudo systemctl start libvirtd
+   sudo systemctl enable libvirtd
+   
+4. Add your user to the libvirt group.
+    sudo usermod -aG libvirt $(whoami)
+
+5. Install the secure boot tool package
+   It is needed when you are configuring the virtual machine, windows 11 need it. To install run the following command
+   sudo dnf install edk2-ovmf
+
+6. Install the TPM tool package
