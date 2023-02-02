@@ -1,16 +1,24 @@
 
 # install gimp
-sudo dnf install -y gimp
+# sudo dnf install -y gimp
+
+# install OpenJDK
+# Run the following command to install OpenJDK:
+# sudo dnf install <openjdk-package-name>
+# sudo dnf install java-1.8.0-openjdk.x86_64
+
+# install jdownloader2
+# https://jdownloader.org/download/index
 
 # install vscodium
 sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
 sudo printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg\nmetadata_expire=1h" | sudo tee -a /etc/yum.repos.d/vscodium.repo
 sudo dnf install -y codium
 
-# install chrome
-sudo dnf install -y fedora-workstation-repositories
-sudo dnf config-manager --set-enabled google-chrome
-sudo dnf install -y google-chrome-stable
+# # install chrome
+# sudo dnf install -y fedora-workstation-repositories
+# sudo dnf config-manager --set-enabled google-chrome
+# sudo dnf install -y google-chrome-stable
 
 # install brave
 sudo dnf install -y dnf-plugins-core
@@ -18,7 +26,7 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
 
-# install vivaldi (Crashes when you pull tabs out, use Brave instead)
+# # install vivaldi (Crashes when you pull tabs out, use Brave instead)
 # sudo dnf install -y dnf-utils
 # sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
 # sudo dnf install -y vivaldi-stable
