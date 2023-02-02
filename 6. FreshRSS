@@ -1,4 +1,5 @@
 # https://christitus.com/why-we-dont-browse-the-internet-anymore/
+# https://github.com/FreshRSS/FreshRSS/tree/edge/Docker
 
 # Feed Aggregation
     docker run -d \
@@ -7,13 +8,12 @@
     --restart always \
     heussd/fivefilters-full-text-rss:latest
 
-  Feed Reader
-    docker run -d \
-    --name=freshrss \
-    -e PUID=1000 \
-    -e PGID=1000 \
-    -e TZ=Europe/London \
-    -p 49999:80 \
-    -v /path/to/data:/config \
-    --restart unless-stopped \
-    lscr.io/linuxserver/freshrss:latest
+ # Feed Reader
+docker run -d --restart unless-stopped --log-opt max-size=10m \
+  -p 49999:80 \
+  -e TZ=Australia/Melbourne \
+  -e 'CRON_MIN=1,31' \
+  -v freshrss_data:/var/www/FreshRSS/data \
+  -v freshrss_extensions:/var/www/FreshRSS/extensions \
+  --name freshrss \
+  freshrss/freshrss
