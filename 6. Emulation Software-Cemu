@@ -6,5 +6,6 @@
 # https://lutris.net/games/cemu/
   flatpak install flathub net.lutris.Lutris
   
-# https://github.com/leomaurodesenv/cemu-linux
-# Steps to using Cemu with Wine works for any game!
+  
+# Cemu in Linux (https://github.com/leomaurodesenv/cemu-linux)
+
