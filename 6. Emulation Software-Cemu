@@ -1,0 +1,10 @@
+# Wine
+  sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/36/winehq.repo
+  sudo dnf install winehq-stable
+
+# Lutris (Required to install Wine or flatpak version)
+# https://lutris.net/games/cemu/
+  flatpak install flathub net.lutris.Lutris
+  
+# https://github.com/leomaurodesenv/cemu-linux
+# Steps to using Cemu with Wine works for any game!
