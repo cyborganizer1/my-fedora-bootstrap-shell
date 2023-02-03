@@ -1,6 +1,6 @@
 
 # install gimp
-# sudo dnf install -y gimp
+  sudo dnf install -y gimp
 
 # install OpenJDK
 # Run the following command to install OpenJDK:
@@ -50,9 +50,6 @@ sudo dnf install rust cargo
 cargo install topgrade
 echo 'export PATH=$PATH:/home/pala/.cargo/bin' >> /home/pala/.zshrc
 cargo install cargo-update
-
-# joplin (note taking and to-do application)
-sudo wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 
 # install terraform
 sudo dnf install -y dnf-plugins-core
