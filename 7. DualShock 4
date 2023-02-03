@@ -1,4 +1,5 @@
-https://wiki.gentoo.org/wiki/Sony_DualShock#DualShock_4
+# https://wiki.gentoo.org/wiki/Sony_DualShock#DualShock_4
+# Controller Configuration - https://cemu.cfw.guide/controller-configuration.html
 
 # Start bluetoothctl:
   bluetoothctl
