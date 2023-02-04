@@ -147,6 +147,7 @@ sudo dnf install -y bat # cat clone with syntax highlighting and Git integration
 # sudo dnf install -y dos2unix (not sure if this required)
 sudo dnf install -y git
 sudo dnf install -y hstr # bash and zsh shell history suggest box (https://github.com/dvorka/hstr)
+sudo dnf install -Y cabextract # required for winetricks
 
 # install powershell
 $ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
