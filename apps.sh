@@ -7,6 +7,9 @@
 # sudo dnf install <openjdk-package-name>
 # sudo dnf install java-1.8.0-openjdk.x86_64
 
+# install Ferdium (Messaging app)
+# https://ferdium.org/download
+
 # install jdownloader2
 # https://jdownloader.org/download/index
 
@@ -20,16 +23,14 @@ sudo dnf install -y codium
 # sudo dnf config-manager --set-enabled google-chrome
 # sudo dnf install -y google-chrome-stable
 
+# install firefox
+  sudo dnf install -y firefox
+  
 # install brave
 sudo dnf install -y dnf-plugins-core
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
-
-# # install vivaldi (Crashes when you pull tabs out, use Brave instead)
-# sudo dnf install -y dnf-utils
-# sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-# sudo dnf install -y vivaldi-stable
 
 # office 365 webapps -install edge 1st
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
