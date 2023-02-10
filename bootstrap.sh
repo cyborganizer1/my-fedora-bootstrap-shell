@@ -181,6 +181,9 @@ chsh -s $(which zsh)
 # install oh-my-zsh (do not install as Sudo or $HOME will point to /root)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+# install lsd
+sudo dnf install -y lsd
+
 # set .zshrc
 sudo wget -O $HOME/.zshrc https://raw.githubusercontent.com/cyborganizer1/my-dotfiles/main/.zshrc--no-check-certificate
 
